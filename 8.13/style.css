@@ -1,0 +1,41 @@
+/* .myText {
+    color: red;
+    font-style: italic;
+}
+
+h1 {
+    
+
+#textId {
+    color: green;
+    text-transform: capitalize;
+    background-color: yellow;
+}
+
+input {
+    display: block;
+}
+
+p {
+    display: inline-block;
+} */
+
+/* float */
+hr.line {
+    width: 100px;
+    border: none;
+    border-top: 5px solid violet;
+}
+
+h1 {
+    border: 2px dashed orangered;
+    transition: 300ms;
+    width: max-content;
+    /* 1s = 1000ms */
+}
+
+h1:hover {
+    color: orchid;
+    width: 100%;
+    /* text-transform: uppercase; */
+}
