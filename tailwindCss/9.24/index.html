@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+</head>
+<body class="overflow-x-hidden">
+    <header class="w-full flex items-center justify-between bg-red-400 text-white">
+        <div class="pl-4">
+            <h1 class="text-3xl font-bold">Logo</h1>
+        </div>
+        <div>
+            <i id="toggle" onclick="toggleMenu()" class="fas fa-bars p-4 text-xl md:hidden"></i>
+            <ul class="hidden md:flex">
+                <li class="py-4 px-8 font-bold text-lg transition duration-300 hover:bg-white hover:text-red-400 cursor-pointer">Home</li>
+                <li class="py-4 px-8 font-bold text-lg transition duration-300 hover:bg-white hover:text-red-400 cursor-pointer">About</li>
+                <li class="py-4 px-8 font-bold text-lg transition duration-300 hover:bg-white hover:text-red-400 cursor-pointer">Service</li>
+                <li class="py-4 px-8 font-bold text-lg transition duration-300 hover:bg-white hover:text-red-400 cursor-pointer">Contact</li>
+            </ul>
+        </div>
+    </header>
+
+    <div id="mobile_menu" class="h-screen text-white fixed transition duration-300 top-0 left-full w-full bg-red-400">
+        <div class="w-full p-4 text-right">
+            <i onclick="toggleMenu()" id="closeBtn" class="fas fa-times text-3xl"></i>
+        </div>
+        <ul class="w-full">
+            <li class="w-full p-4 hover:bg-white hover:text-red-400 cursor-pointer font-bold uppercase text-2xl">
+                Home
+            </li>
+            <li class="w-full p-4 hover:bg-white hover:text-red-400 cursor-pointer font-bold uppercase text-2xl">
+                About
+            </li>
+            <li class="w-full p-4 hover:bg-white hover:text-red-400 cursor-pointer font-bold uppercase text-2xl">
+                Service
+            </li>
+            <li class="w-full p-4 hover:bg-white hover:text-red-400 cursor-pointer font-bold uppercase text-2xl">
+                Contact
+            </li>
+        </ul>
+    </div>
+
+    <div class="container my-6 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
+        
+    </div>
+
+
+    <script>
+        const menu = document.querySelector('#mobile_menu');
+        const container = document.querySelector('.container')
+
+        function toggleMenu(){
+            menu.classList.toggle('left-full');
+        }
+
+        const colors = ["red", "green", "indigo", "gray", "yellow", "blue", "pink", "purple"]
+        
+
+        for(let i = 0; i < 8; i++){
+            container.insertAdjacentHTML('beforeend', `
+                <div class="w-full h-64 bg-${colors[i]}-400 bg-opacity-30 border-4 border-${colors[i]}-400 rounded-xl"></div>
+            `)
+        }
+
+    </script>
+</body>
+</html>
