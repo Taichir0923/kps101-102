@@ -77,7 +77,7 @@
 
 // let bla;
 // console.log(bla)
-var x = prompt('ehnii toog oruul');
+// var x = prompt('ehnii toog oruul');
 // var y = +prompt('2 dahi toog oruul');
 // var z = +prompt('3 dahi toog oruul');
 
