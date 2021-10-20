@@ -1,3 +1,4 @@
+"use strict"
 // // ES5
 // // DataType - Primitive DataTypes
 // // 1. String - text tovtei - "jgklhlkdfjlk 123 05460 true"
@@ -361,146 +362,291 @@
 
 // var arr = [54, 23, 48, 52, 1, 0, 26, 123, 26]
 
-function bubbleSort(arr) {
-    for (var i = 0; i < arr.length; i++) {
-        for (var j = 0; j < arr.length; j++) {
-            if (arr[j] > arr[j + 1]) {
-                var temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
-    }
-    return arr;
-}
+// function bubbleSort(arr) {
+//     for (var i = 0; i < arr.length; i++) {
+//         for (var j = 0; j < arr.length; j++) {
+//             if (arr[j] > arr[j + 1]) {
+//                 var temp = arr[j];
+//                 arr[j] = arr[j + 1];
+//                 arr[j + 1] = temp;
+//             }
+//         }
+//     }
+//     return arr;
+// }
 
-// var a = 5;
-// var b = 6;
-// var temp = a;
+// // var a = 5;
+// // var b = 6;
+// // var temp = a;
 
-// a = b;
-// b = temp;
-// 5, 6, 7, 5, 6, 2, 78, 5
-function selectionSort(arr) {
-    for (var i = 0; i < arr.length; i++) {
-        var minIndex = i;
-        for (var j = i + 1; j < arr.length; j++) {
-            if (arr[minIndex] > arr[j]) {
-                minIndex = j;
-            }
-        }
-        var temp = arr[i];
-        arr[i] = arr[minIndex];
-        arr[minIndex] = temp;
-    }
-    return arr;
-}
+// // a = b;
+// // b = temp;
+// // 5, 6, 7, 5, 6, 2, 78, 5
 
-// 45, 12, 52, 63, 482,2, 15, 26, 46
-// [12, 45]   [52, 63]   [2, 482]   [15, 26]   [46]
-// [12, 45, 52, 63]   [2, 15, 26, 482] [46]
-// [2, 12, 15, 26, 45, 52, 63, 482] [46]
-// [2, 12, 15, 26, 45, 46, 52, 63, 482]
 
-// 
-function mergeArray(left, right){
-    var result = [];
-    var i = 0;
-    var j = 0;
+// // 45, 12, 52, 63, 482,2, 15, 26, 46
+// // [12, 45]   [52, 63]   [2, 482]   [15, 26]   [46]
+// // [12, 45, 52, 63]   [2, 15, 26, 482] [46]
+// // [2, 12, 15, 26, 45, 52, 63, 482] [46]
+// // [2, 12, 15, 26, 45, 46, 52, 63, 482]
 
-    while(i < left.length && j < right.length){
-        if(left[i] < right[j]){
-            result.push(left[i]);
-            i++;
-        } else {
-            result.push(right[j]);
-            j++;
-        }
-    }
+// // 
+// function mergeArray(left, right){
+//     var result = [];
+//     var i = 0;
+//     var j = 0;
 
-    for(i; i < left.length; i++){
-        result.push(left[i])
-    }
+//     while(i < left.length && j < right.length){
+//         if(left[i] < right[j]){
+//             result.push(left[i]);
+//             i++;
+//         } else {
+//             result.push(right[j]);
+//             j++;
+//         }
+//     }
 
-    for(j; j < right.length; j++){
-        result.push(right[j])
-    }
+//     for(i; i < left.length; i++){
+//         result.push(left[i])
+//     }
 
-    return result;
-}
+//     for(j; j < right.length; j++){
+//         result.push(right[j])
+//     }
 
-function mergeSort(arr){
-    if(arr.length <= 1){
-        return arr;
-    }
-    var midIndex = Math.floor(arr.length/2);
-    var left = mergeSort(arr.slice(0, midIndex)); // 3
-    var right = mergeSort(arr.slice(midIndex)); // 4
+//     return result;
+// }
+
+// function mergeSort(arr){
+//     if(arr.length <= 1){
+//         return arr;
+//     }
+//     var midIndex = Math.floor(arr.length/2);
+//     var left = mergeSort(arr.slice(0, midIndex)); // 3
+//     var right = mergeSort(arr.slice(midIndex)); // 4
     
-    return mergeArray(left, right);
-}
+//     return mergeArray(left, right);
+// }
 
-// 5
+// // 5
 
-// [5, 12, 23], [6, 8, 21, 25, 33, 39, 41]
-// [5, 6, 8, 12, 21, 23, 25, 33, 39, 41]
+// // [5, 12, 23], [6, 8, 21, 25, 33, 39, 41]
+// // [5, 6, 8, 12, 21, 23, 25, 33, 39, 41]
 
-// 45, 12, 52, 63, 482, 2, 15, 26
-// 45, 12, 52, 63    482, 2, 15, 26
-// 45, 12    52, 63      482, 2      15, 26
-// 45, 12, 52, 63, 482, 2, 15, 26
-
-
-// getNum(num, i)
-// 4561263, 5 => 6
+// // 45, 12, 52, 63, 482, 2, 15, 26
+// // 45, 12, 52, 63    482, 2, 15, 26
+// // 45, 12    52, 63      482, 2      15, 26
+// // 45, 12, 52, 63, 482, 2, 15, 26
 
 
-
-// 156, 0
-// 156 / 1 => 156 / 10 => 6
-
-// 14564123, 5
-// 145/10 => 5
-var num = 565464;
-function getDigit(num, i){
-    // if(num.toString().length <= i){
-    //     return 0
-    // }
-    // return +num.toString().split('').reverse()[i]
-    return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10
-}
-// 
-function countDigits(num){
-    return num >= 0 ? num.toString().length : num.toString().length - 1;
-}
-
-function maxDigit(arr){
-    var maximum = 0;
-    for(var i = 0; i < arr.length; i++){
-        maximum = Math.max(maximum, countDigits(arr[i]))
-    }
-    return maximum;
-}
+// // getNum(num, i)
+// // 4561263, 5 => 6
 
 
-function radixSort(arr){
-    var mxDigit = maxDigit(arr);
-    for(var i = 0; i < mxDigit; i++){
-        var bucket = Array.from({length: 10}, function(){
-            return [] 
-        })
-        for(var j = 0; j < arr.length; j++){
-            var order = getDigit(arr[j], i);
-            bucket[order].push(arr[j])
-        }
 
-        arr = [].concat(...bucket);
-    }
-    return arr;
-}
+// // 156, 0
+// // 156 / 1 => 156 / 10 => 6
+
+// // 14564123, 5
+// // 145/10 => 5
+// var num = 565464;
+// function getDigit(num, i){
+//     // if(num.toString().length <= i){
+//     //     return 0
+//     // }
+//     // return +num.toString().split('').reverse()[i]
+//     return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10
+// }
+// // 
+// function countDigits(num){
+//     return num >= 0 ? num.toString().length : num.toString().length - 1;
+// }
+
+// function maxDigit(arr){
+//     var maximum = 0;
+//     for(var i = 0; i < arr.length; i++){
+//         maximum = Math.max(maximum, countDigits(arr[i]))
+//     }
+//     return maximum;
+// }
+
+
+// function radixSort(arr){
+//     var mxDigit = maxDigit(arr);
+//     for(var i = 0; i < mxDigit; i++){
+//         var bucket = Array.from({length: 10}, function(){
+//             return [] 
+//         })
+//         for(var j = 0; j < arr.length; j++){
+//             var order = getDigit(arr[j], i);
+//             bucket[order].push(arr[j])
+//         }
+
+//         arr = [].concat(...bucket);
+//     }
+//     return arr;
+// }
 
 // [456123, 45, 12, 45, 12,48, 45641] => 6
 
 // Ternary Operator ? :
 // var nas = 15;
 // nas >= 18 ? console.log('adult') : console.log('child')
+
+// ES6 => EcmaScript 2015
+// var => let
+// constant variable => 
+// const ner = "Narada";
+// {
+//     let x = 5;
+//     console.log(x)
+// }
+
+
+// for in, for of
+
+// var nerHevleh = function(){
+//     console.log('ES5')
+// }
+
+// arrow function
+// const printNer = () => "Narada";
+
+// function selectionSort(arr) {
+//     for (var i = 0; i < arr.length; i++) {
+//         var minIndex = i;
+        // for (var j = i + 1; j < arr.length; j++) {
+        //     if (arr[minIndex] > arr[j]) {
+        //         minIndex = j;
+        //     }
+        // }
+        // var temp = arr[i];
+        // arr[i] = arr[minIndex];
+        // arr[minIndex] = temp;
+//     }
+//     return arr;
+// }
+
+// const selectionSort = (arr) => {
+//     for(let i = 0; i < arr.length; i++){
+//         let minIndex = i;
+//         for (let j = i + 1; j < arr.length; j++) {
+//             if (arr[minIndex] > arr[j]) {
+//                 minIndex = j;
+//             }
+//         }
+//         let temp = arr[i];
+//         arr[i] = arr[minIndex];
+//         arr[minIndex] = temp;
+//     }
+
+//     return arr;
+// }
+
+// object, this keyword, object function
+// let object = {
+//     ner: "Narada",
+//     nasTootsoh: function(on){
+//         this.nas = 2021 - on
+//     }
+// }
+
+// object.shineUtga = 56
+
+// this opertor => window
+// window.alert("Hi")
+
+// function callWindow(){
+//     console.log(this)
+// }
+
+// object.nasTootsoh()
+
+// JS dotorh buh zuils n OBJECT
+// s
+
+
+// callback
+
+// map, filter, reduce, sort, find, findIndex, forEach
+// let arr = [56, 58, 52, 41, 56, 93, 23, 14, 25, 32];
+
+// arr.forEach(function(bla){
+//     console.log(bla * 2)
+// })
+
+// arr.forEach((el) => {
+//     console.log(el*3)
+// })
+
+// console.log(arr.reduce((a, b) => a + b))
+// console.log(arr.sort((a, b) => b - a));
+// 
+
+// let x = "gfdsgjkfsdl"
+
+// polyfill;
+// Array.prototype.myFilter = function(callback){
+//     var result = [];
+//     for(var i = 0; i < this.length; i++){
+//         if(callback(this[i], i) === true){
+//             result.push(this[i])
+//         }
+//     }
+//     return result;
+// }
+
+// // find , findIndex
+// Array.prototype.myFind = function(callback){
+//     var result = undefined;
+//     for(var i = 0; i < this.length; i++){
+//         if(callback(this[i], i) === true){
+//             result = this[i];
+//         }
+//     }
+//     return result;
+// }
+
+// Array.prototype.myFindIndex = function(callback){
+//     var result = -1;
+//     for(var i = 0; i < this.length; i++){
+//         if(callback(this[i], i) === true){
+//             result = i;
+//         }
+//     }
+//     return result;
+// }
+
+// ES5, ES6 
+// call bind
+
+// JavaScript => TypeScript
+// Python
+// var number = 5
+// nuber = 23
+
+// 1. Хэрэглэгчийн мэдээлэл агуулсан обжект үүсгэ
+// 2. Хэрэглэгчийн регистрийн дугаарын эхний 2 үсэг болон утасны дугаарын сүүлийн 6 оронгоос бүрдсэн нууц үг үүсгэх обжект функц бич. Жич: Регистрийн дугаарын 2 дахь үсэг том байх
+
+let objec = {
+    ner: "Narada",
+    rd: "ub96120852",
+    utas: 99662513,
+    generatePassword: function(){
+        this.password = this.rd[0] + this.rd[1].toUpperCase() + this.utas.toString().slice(2)
+    }
+}
+
+// Гэрт:
+// РД авдаг функц бичнэ. Регистрийн дугаарын эхний 2 элемент үсэг мөн эсэхийг шалгана. Сүүлийн 8 элемент 0-9 хоорондох тоо мөн эсэхийг шалгана. 
+// хэрэв шаардлага хангасан бол, true буцаана
+// шаардлага хангаагүй бол false
+
+// Оролт: "UB12344578"
+// Гаралт: true
+
+// Оролт: "U12344578"
+// Гаралт: false
+
+// Оролт: "UK1234457"
+// Гаралт: false
