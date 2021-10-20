@@ -628,14 +628,14 @@
 // 1. Хэрэглэгчийн мэдээлэл агуулсан обжект үүсгэ
 // 2. Хэрэглэгчийн регистрийн дугаарын эхний 2 үсэг болон утасны дугаарын сүүлийн 6 оронгоос бүрдсэн нууц үг үүсгэх обжект функц бич. Жич: Регистрийн дугаарын 2 дахь үсэг том байх
 
-let objec = {
-    ner: "Narada",
-    rd: "ub96120852",
-    utas: 99662513,
-    generatePassword: function(){
-        this.password = this.rd[0] + this.rd[1].toUpperCase() + this.utas.toString().slice(2)
-    }
-}
+// let objec = {
+//     ner: "Narada",
+//     rd: "ub96120852",
+//     utas: 99662513,
+//     generatePassword: function(){
+//         this.password = this.rd[0] + this.rd[1].toUpperCase() + this.utas.toString().slice(2)
+//     }
+// }
 
 // Гэрт:
 // РД авдаг функц бичнэ. Регистрийн дугаарын эхний 2 элемент үсэг мөн эсэхийг шалгана. Сүүлийн 8 элемент 0-9 хоорондох тоо мөн эсэхийг шалгана. 
