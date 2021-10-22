@@ -650,3 +650,79 @@
 
 // Оролт: "UK1234457"
 // Гаралт: false
+
+// function User(username, profession){ // байгуулагч функц , object , OOP - 
+// // Object Oriented Programming
+//     this.username = username;
+//     this.profession = profession
+// }
+
+// User.prototype.getName = function(){
+//      return this.username;
+// }
+
+// User.prototype.setName = function(newUsername){
+//      this.username = newUsername;
+// }
+
+// const narada = new User("Narada", "Designer");
+// const bat = new User("Bat", "Programmer");
+
+
+// Quiz App
+function Quiz(question, answers, correctAnswer){
+    this.question = question;
+    this.answers = answers;
+    this.correctAnswer = correctAnswer;
+}
+
+Quiz.prototype.showQuestion = function(){
+    console.log(this.question);
+    this.answers.forEach((answer, index) => {
+        console.log(index + ": " + answer)
+    })
+}
+
+Quiz.prototype.checkAnswer = function(ans){
+    if(this.correctAnswer === +ans){
+        console.log("Зөв байна. баяр хүргэе...");
+        return 1;
+    } 
+    console.log('Буруу байна... Дахин оролоно уу...');
+    return 0;
+}
+
+const q1 = new Quiz("Монгол улс хэдэн аймагтай вэ?", [19, 20, 21, 22], 2);
+const q2 = new Quiz("Улаанбаатар хэдэн дүүрэгтэй вэ?", [6, 7, 8, 9], 3);
+const q3 = new Quiz("Монгол улс хэдэн сумтай вэ?", [361, 21, 9, 360], 0);
+const q4 = new Quiz("Монгол орны хойд хөрш ямар улс вэ?", ["Хятад", "Солонгос", "Казакстан", "ОХУ"], 3);
+const q5 = new Quiz("Монгол орны хамгийн өндөр цэг хэдэн метр вэ?", [8864, 6678, 4374, 5618], 2);
+
+// q1.showQuestion();
+// q1.checkAnswer(prompt("Зөв хариултыг сонго..."));
+const questions = [q1, q2, q3, q4, q5];
+
+var onoo = 0;
+questions.forEach(function(quiz, index){
+    console.log(index + 1 + "-р асуулт")
+    quiz.showQuestion();
+    onoo += quiz.checkAnswer(prompt("Зөв хариултыг сонго..."));
+})
+
+console.log("Та " + onoo + " асуултанд зөв хариуллаа")
+
+
+/**
+ * [
+ *      {
+ *              hariult: 15,
+ *              status: true
+ *      },
+ *      {
+ *              hariult: 16,
+ *              status: false
+ *      }
+ * ]
+ */
+
+// хариултуудын гарч ирэх дарааллыг өөрчил
