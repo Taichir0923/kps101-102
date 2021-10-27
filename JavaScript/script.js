@@ -670,46 +670,46 @@
 
 
 // Quiz App
-function Quiz(question, answers, correctAnswer){
-    this.question = question;
-    this.answers = answers;
-    this.correctAnswer = correctAnswer;
-}
+// function Quiz(question, answers, correctAnswer){
+//     this.question = question;
+//     this.answers = answers;
+//     this.correctAnswer = correctAnswer;
+// }
 
-Quiz.prototype.showQuestion = function(){
-    console.log(this.question);
-    this.answers.forEach((answer, index) => {
-        console.log(index + ": " + answer)
-    })
-}
+// Quiz.prototype.showQuestion = function(){
+//     console.log(this.question);
+//     this.answers.forEach((answer, index) => {
+//         console.log(index + ": " + answer)
+//     })
+// }
 
-Quiz.prototype.checkAnswer = function(ans){
-    if(this.correctAnswer === +ans){
-        console.log("Зөв байна. баяр хүргэе...");
-        return 1;
-    } 
-    console.log('Буруу байна... Дахин оролоно уу...');
-    return 0;
-}
+// Quiz.prototype.checkAnswer = function(ans){
+//     if(this.correctAnswer === +ans){
+//         console.log("Зөв байна. баяр хүргэе...");
+//         return 1;
+//     } 
+//     console.log('Буруу байна... Дахин оролоно уу...');
+//     return 0;
+// }
 
-const q1 = new Quiz("Монгол улс хэдэн аймагтай вэ?", [19, 20, 21, 22], 2);
-const q2 = new Quiz("Улаанбаатар хэдэн дүүрэгтэй вэ?", [6, 7, 8, 9], 3);
-const q3 = new Quiz("Монгол улс хэдэн сумтай вэ?", [361, 21, 9, 360], 0);
-const q4 = new Quiz("Монгол орны хойд хөрш ямар улс вэ?", ["Хятад", "Солонгос", "Казакстан", "ОХУ"], 3);
-const q5 = new Quiz("Монгол орны хамгийн өндөр цэг хэдэн метр вэ?", [8864, 6678, 4374, 5618], 2);
+// const q1 = new Quiz("Монгол улс хэдэн аймагтай вэ?", [19, 20, 21, 22], 2);
+// const q2 = new Quiz("Улаанбаатар хэдэн дүүрэгтэй вэ?", [6, 7, 8, 9], 3);
+// const q3 = new Quiz("Монгол улс хэдэн сумтай вэ?", [361, 21, 9, 360], 0);
+// const q4 = new Quiz("Монгол орны хойд хөрш ямар улс вэ?", ["Хятад", "Солонгос", "Казакстан", "ОХУ"], 3);
+// const q5 = new Quiz("Монгол орны хамгийн өндөр цэг хэдэн метр вэ?", [8864, 6678, 4374, 5618], 2);
 
-// q1.showQuestion();
-// q1.checkAnswer(prompt("Зөв хариултыг сонго..."));
-const questions = [q1, q2, q3, q4, q5];
+// // q1.showQuestion();
+// // q1.checkAnswer(prompt("Зөв хариултыг сонго..."));
+// const questions = [q1, q2, q3, q4, q5];
 
-var onoo = 0;
-questions.forEach(function(quiz, index){
-    console.log(index + 1 + "-р асуулт")
-    quiz.showQuestion();
-    onoo += quiz.checkAnswer(prompt("Зөв хариултыг сонго..."));
-})
+// var onoo = 0;
+// questions.forEach(function(quiz, index){
+//     console.log(index + 1 + "-р асуулт")
+//     quiz.showQuestion();
+//     onoo += quiz.checkAnswer(prompt("Зөв хариултыг сонго..."));
+// })
 
-console.log("Та " + onoo + " асуултанд зөв хариуллаа")
+// console.log("Та " + onoo + " асуултанд зөв хариуллаа")
 
 
 /**
@@ -725,4 +725,96 @@ console.log("Та " + onoo + " асуултанд зөв хариуллаа")
  * ]
  */
 
-// хариултуудын гарч ирэх дарааллыг өөрчил
+// Хариултуудын гарч ирэх дарааллыг өөрчил.
+// Асуултууд гарч ирэх дарааллыг өөрчил.
+
+// https://github.com/taichir0923/kps101-102
+
+
+// ES6 syntax
+// var , let
+// const calculateAge = torsonOn => 2021 - torsonOn; // arrow function
+
+// const calculateAge = (torsonOn, ner) => {
+//     return () => {
+//         console.log({
+//             on: torsonOn,
+//             ner: ner
+//         })
+//     }
+// }
+
+// calculateAge(2000, "Narada")();
+
+// class operator
+
+// class User {
+//     constructor(ner, nas, mergejil){
+//         this.ner = ner;
+//         this.nas = nas;
+//         this.mergejil = mergejil
+//     }
+
+//     getName(){
+//         return this.ner;
+//     }
+
+//     sendTransaction(newName){
+//         this.ner = newName; => "Narada" => 
+//         return this;
+//     }
+
+//     makeBlock()
+
+//     allTransactions()
+// }
+
+// Function.prototype.bla = function(){
+//     // this
+// }
+// methodical
+// prototypical
+
+// const user = new User("Narada", 25, "Designer");
+// const user1 = new User("Steve", 21, "Programmer");
+// const user2 = new User("John", 29, "Economist");
+
+// class SpecialUser extends User {
+//     constructor(ner, nas, mergejil, level){
+//         super(ner, nas, mergejil);
+//         this.level = level;
+//     }
+// }
+
+// const specialUser = new SpecialUser('Anna', 25, "Singer", 10);
+
+// OOP - Object Oriented Programming
+// Data Structure
+// Linked List - Node, Head, Tail
+// Singly LL
+// Doubly LL
+// Stack - Last in First Out => push, pop || unshift, shift
+// Queue - First In First Out => push, shift || unshift pop 
+// Graph - Dxjixtra's Algorithm
+// BST - Binary Search Tree
+// Matrix - [[], [], []]
+// Dynamic Programming - Recursion
+
+// Blockchain
+
+// Parentheses Balance, Operator
+// ({[(){}[]]})};
+// 
+// 
+// DOM - Document Object Model
+// NodeJS - Rest API, Backend
+// React - Dynamic Front Web Site
+// React Native - Mobile App
+
+// 
+
+//                      20
+//             15                 25
+//       13          16     23           30
+//   5       14
+//     8
