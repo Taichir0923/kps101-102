@@ -54,3 +54,32 @@
 
 // update hiih
 // delete hiih
+
+const zurag = document.querySelector("#img");
+const fullname = document.querySelector("#fullname");
+const hobbies = document.querySelector("#hobby");
+const backdrop = document.querySelector('.backdrop')
+
+function burtgeh(){
+    if(zurag.value.trim() !== "" || fullname.value.trim() !== "" || hobbies.value.trim() !== ""){
+        console.log(zurag.value)
+        console.log(fullname.value)
+        console.log(hobbies.value)
+        backdrop.classList.add('open')
+        reset()
+    } else {
+        alert('Өгөгдөл дутуу байна')
+    }
+}
+
+function reset(){
+    zurag.value = ''
+    fullname.value = ''
+    hobbies.value = ''
+}
+
+document.addEventListener('click', e => {
+    if(e.target.id === "close" || e.target.classList.contains("backdrop")){
+        backdrop.classList.remove('open')
+    }
+})
