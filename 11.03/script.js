@@ -60,11 +60,15 @@ const fullname = document.querySelector("#fullname");
 const hobbies = document.querySelector("#hobby");
 const backdrop = document.querySelector('.backdrop')
 
+const img = document.querySelector('#zurag')
+const ner = document.querySelector('#ner')
+const hobby = document.querySelector('#hobbi')
+
 function burtgeh(){
     if(zurag.value.trim() !== "" || fullname.value.trim() !== "" || hobbies.value.trim() !== ""){
-        console.log(zurag.value)
-        console.log(fullname.value)
-        console.log(hobbies.value)
+        img.src= zurag.value
+        ner.innerHTML = fullname.value
+        hobby.innerHTML = "Хобби: " + hobbies.value
         backdrop.classList.add('open')
         reset()
     } else {

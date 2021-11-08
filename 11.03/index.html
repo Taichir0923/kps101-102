@@ -64,8 +64,9 @@
                 justify-content: center;
                 align-items: center;
                 opacity: 0;
-                visibility: hidden;
+                /* visibility: hidden; */
                 transition: .4s ease-in-out;
+                z-index: -100;
             }
 
             .backdrop .modal {
@@ -97,17 +98,18 @@
 
             .open {
                 opacity: 1 !important;
-                visibility: visible !important;
+                /* visibility: visible !important; */
+                z-index: 100;
             }
         </style>
     </head>
     <body>
         <div class="backdrop">
             <div class="modal">
-                <img src="https://i.pinimg.com/originals/d9/56/9b/d9569bbed4393e2ceb1af7ba64fdf86a.jpg" alt="">
-                <h2>П. Энх-Амгалан</h2>
-                <h3>Хобби: Кино үзэх</h3>
-                <div onclick="close()" class="close">
+                <img id="zurag" src="https://i.pinimg.com/originals/d9/56/9b/d9569bbed4393e2ceb1af7ba64fdf86a.jpg" alt="">
+                <h2 id="ner">П. Энх-Амгалан</h2>
+                <h3 id="hobbi">Хобби: Кино үзэх</h3>
+                <div class="close">
                     <i id="close" class="fas fa-times"></i>
                 </div>
             </div>
