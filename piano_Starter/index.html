@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Piano App</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    
+    <section class="w-full h-screen flex justify-center items-center bg-red-400">
+        <div class="pianoContainer overflow-hidden w-3/5 h-96 bg-white flex rounded-3xl">
+            <div id="c4" class="whiteButton w-1/5 h-full border-r border-black"></div>
+            <div id="d4" class="whiteButton w-1/5 h-full border-r border-black relative">
+                <div id="db4" class="blackButton border border-black w-2/4 h-3/5 bg-black transform -translate-x-2/4"></div>
+            </div>
+            <div id="e4" class="whiteButton w-1/5 h-full border-r border-black">
+                <div id="eb4" class="blackButton border border-black w-2/4 h-3/5 bg-black transform -translate-x-2/4"></div>
+            </div>
+            <div id="f4" class="whiteButton w-1/5 h-full border-r border-black"></div>
+            <div id="g4" class="whiteButton w-1/5 h-full border-r border-black">
+                <div id="gb4" class="blackButton border border-black w-2/4 h-3/5 bg-black transform -translate-x-2/4"></div>
+            </div>
+            <div id="a4" class="whiteButton w-1/5 h-full border-r border-black">
+                <div id="ab4" class="blackButton border border-black w-2/4 h-3/5 bg-black transform -translate-x-2/4"></div>
+            </div>
+            <div id="b4" class="whiteButton w-1/5 h-full border-r border-black">
+                <div id="bb4" class="blackButton border border-black w-2/4 h-3/5 bg-black transform -translate-x-2/4"></div>
+            </div>
+            <div id="c5" class="whiteButton w-1/5 h-full border-r border-black"></div>
+            <div id="d5" class="whiteButton w-1/5 h-full border-r border-black">
+                <div id="db5" class="blackButton border border-black w-2/4 h-3/5 bg-black transform -translate-x-2/4"></div>
+            </div>
+            <div id="e5" class="whiteButton w-1/5 h-full border-black">
+                <div id="eb5" class="blackButton border border-black w-2/4 h-3/5 bg-black transform -translate-x-2/4"></div>
+            </div>
+        </div>
+
+        <div class="audioContainer">
+            <audio id="noteC4" src="./audios/C4.mp3"></audio>
+            <audio id="noteD4" src="./audios/D4.mp3"></audio>
+            <audio id="noteE4" src="./audios/E4.mp3"></audio>
+            <audio id="noteF4" src="./audios/F4.mp3"></audio>
+            <audio id="noteG4" src="./audios/G4.mp3"></audio>
+            <audio id="noteA4" src="./audios/A4.mp3"></audio>
+            <audio id="noteB4" src="./audios/B4.mp3"></audio>
+            <audio id="noteC5" src="./audios/C5.mp3"></audio>
+            <audio id="noteD5" src="./audios/D5.mp3"></audio>
+            <audio id="noteE5" src="./audios/E5.mp3"></audio>
+            
+            <audio id="noteDb4" src="./audios/Db4.mp3"></audio>
+            <audio id="noteEb4" src="./audios/Eb4.mp3"></audio>
+            <audio id="noteGb4" src="./audios/Gb4.mp3"></audio>
+            <audio id="noteAb4" src="./audios/Ab4.mp3"></audio>
+            <audio id="noteBb4" src="./audios/Bb4.mp3"></audio>
+            <audio id="noteDb5" src="./audios/Db5.mp3"></audio>
+            <audio id="noteEb5" src="./audios/Eb5.mp3"></audio>
+
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
