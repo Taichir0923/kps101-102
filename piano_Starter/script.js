@@ -8,6 +8,8 @@ document.addEventListener("keydown", function(e){
         c4white.classList.add('bg-gray-300')
         noteC4.play()
     }
+
+    console.log(e.keyCode)
 })
 
 document.addEventListener('keyup', function(e){
