@@ -1,0 +1,124 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1150px;
+    margin: auto;
+}
+
+.wrap {
+    width: 95%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+}
+
+.container .box {
+    height: 250px;
+    border-radius: 10px;
+    border: 2px solid #000;
+    overflow: hidden;
+    position: relative;
+}
+
+.container .box .delete {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    color: white;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.container .box:hover .delete {
+    opacity: 1;
+}
+
+.container .box::before {
+    font-family: 'Font Awesome 6 Free';
+    content: "\f06e";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0, .5);
+    opacity: 0;
+    transition: .3s;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3rem;
+}
+
+/* .container .box::after {
+
+} */
+
+.container .box:hover::before {
+    opacity: 1;
+}
+
+.container .box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.form {
+    width: max-content;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.form .imgInput {
+    border-bottom-left-radius: 100px;
+    border-top-left-radius: 100px;
+    border: 1px solid rgb(174, 103, 241);
+    border-right: none;
+    padding: 10px 1rem;
+}
+
+.form input[type='button'] {
+    border-bottom-right-radius: 100px;
+    border-top-right-radius: 100px;
+    border: 1px solid rgb(174, 103, 241);
+    border-left: none;
+    padding: 10px 1rem;
+    background-color: rgb(174, 103, 241);
+    color: white;
+    cursor: pointer;
+}
+
+.form .imgInput:focus {
+    outline: none;
+}
+
+@media (min-width: 576px){
+    .wrap {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px){
+    .wrap {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1200px){
+    .wrap {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
