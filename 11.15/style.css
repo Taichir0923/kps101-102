@@ -105,6 +105,35 @@
     outline: none;
 }
 
+.backdrop {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}
+
+.backdrop .modal {
+    width: 90%;
+}
+
+.open {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.backdrop .modal img {
+    width: 100%;
+}
+
 @media (min-width: 576px){
     .wrap {
         grid-template-columns: repeat(2, 1fr);

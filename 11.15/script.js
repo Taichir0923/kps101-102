@@ -1,6 +1,7 @@
 const container = document.querySelector('.container #container');
 const input = document.querySelector('input[type="text"]')
 const btn = document.querySelector('input[type="button"]')
+const backdrop = document.querySelector('.backdrop');
 
 const images = [];
 
@@ -11,9 +12,9 @@ btn.addEventListener('click', function(){
 
 function updateUI(){
     container.innerHTML = '';
-    images.forEach(function(img){
-        container.insertAdjacentHTML('afterbegin', `
-            <div class="box">
+    images.forEach(function(img , index){
+        container.insertAdjacentHTML('beforeend', `
+            <div id="zurag-${index}" class="box">
                 <img src=${img} alt="">
                 <div class="delete">
                     <i id="delete" class="fas fa-times"></i>
@@ -26,6 +27,12 @@ function updateUI(){
 
 document.addEventListener('click', function(e){
     if(e.target.id === "delete"){
-        e.target.parentNode.parentNode.remove()
+        const deleteIndex = +e.target.parentNode.parentNode.id.split('-')[1];
+        images.splice(deleteIndex, 1)
+        updateUI()
+    }
+    if(e.target.classList.contains('box')){
+        const openIndec = +e.target.id.split('-')[1];
+        backdrop.classList.add('open')
     }
 })
