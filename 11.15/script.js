@@ -52,7 +52,8 @@ document.addEventListener('click', function(e){
     if(e.target.classList.contains('box')){
         const openIndec = +e.target.id.split('-')[1];
         backdrop.classList.add('open');
-        backdrop.children[0].children[0].src = images[openIndec].zurag;
+        backdrop.children[0].children[1].src = images[openIndec].zurag;
+        backdrop.children[0].children[0].innerHTML = images[openIndec].ner;
     }
     if(e.target.classList.contains('open')){
         backdrop.classList.remove('open');

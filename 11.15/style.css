@@ -123,6 +123,27 @@
 
 .backdrop .modal {
     width: 90%;
+    color: white;
+    font-weight: bold;
+    position: relative;
+}
+
+.backdrop .modal .left,
+.backdrop .modal .right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.backdrop .modal .left{
+    left: 1rem;
+}
+
+.backdrop .modal .right {
+    right: 1rem;
 }
 
 .open {
