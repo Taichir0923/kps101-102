@@ -5,6 +5,7 @@ const btn = document.querySelector('input[type="button"]')
 const backdrop = document.querySelector('.backdrop');
 
 const images = [];
+let openIndec;
 
 /**
  * 
@@ -50,7 +51,7 @@ document.addEventListener('click', function(e){
         updateUI()
     }
     if(e.target.classList.contains('box')){
-        const openIndec = +e.target.id.split('-')[1];
+        openIndec = +e.target.id.split('-')[1];
         backdrop.classList.add('open');
         backdrop.children[0].children[1].src = images[openIndec].zurag;
         backdrop.children[0].children[0].innerHTML = images[openIndec].ner;
