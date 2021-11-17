@@ -1,13 +1,26 @@
 const container = document.querySelector('.container #container');
-const input = document.querySelector('input[type="text"]')
+const input = document.querySelector('.imgInput')
 const btn = document.querySelector('input[type="button"]')
 const backdrop = document.querySelector('.backdrop');
 
 const images = [];
 
+/**
+ * 
+ * {
+ *    ner: "Max",
+ *    zurag: "https://photo.jpg"
+ * }
+ * 
+ */
+
 btn.addEventListener('click', function(){
-    images.push(input.value)
-    updateUI()
+    if(input.value.trim() !== ''){
+        images.push(input.value)
+        updateUI()
+    } else {
+        alert('Өгөгдөл дутуу байна')
+    }
 })
 
 function updateUI(){
@@ -33,6 +46,10 @@ document.addEventListener('click', function(e){
     }
     if(e.target.classList.contains('box')){
         const openIndec = +e.target.id.split('-')[1];
-        backdrop.classList.add('open')
+        backdrop.classList.add('open');
+        backdrop.children[0].children[0].src = images[openIndec];
+    }
+    if(e.target.classList.contains('open')){
+        backdrop.classList.remove('open');
     }
 })
