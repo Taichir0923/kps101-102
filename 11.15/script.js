@@ -53,10 +53,48 @@ document.addEventListener('click', function(e){
     if(e.target.classList.contains('box')){
         openIndec = +e.target.id.split('-')[1];
         backdrop.classList.add('open');
-        backdrop.children[0].children[1].src = images[openIndec].zurag;
-        backdrop.children[0].children[0].innerHTML = images[openIndec].ner;
+        insertItems()
     }
     if(e.target.classList.contains('open')){
         backdrop.classList.remove('open');
     }
+
+    if(e.target.id === "right"){
+        openIndec++;
+        if(openIndec === images.length){
+            openIndec = 0;
+        }
+        insertItems()
+    }
+
+    if(e.target.id === "left"){
+        openIndec--;
+        if(openIndec < 0){
+            openIndec = images.length - 1;
+        }
+        insertItems()
+    }
 })
+
+document.addEventListener('keydown', function(e){
+    if(e.keyCode === 37){
+        openIndec--;
+        if(openIndec < 0){
+            openIndec = images.length - 1;
+        }
+        insertItems()
+    }
+
+    if(e.keyCode === 39){
+        openIndec++;
+        if(openIndec === images.length){
+            openIndec = 0;
+        }
+        insertItems()
+    }
+})
+
+function insertItems(){
+    backdrop.children[0].children[1].src = images[openIndec].zurag;
+    backdrop.children[0].children[0].innerHTML = images[openIndec].ner;
+}
