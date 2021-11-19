@@ -43,3 +43,5 @@ function updateTask(index){
 
     todos = updatedTodos;
 }
+
+// CRUD - Create Read Update Delete
