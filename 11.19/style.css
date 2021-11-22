@@ -3,3 +3,37 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.navigation {
+    width: 600px;
+    margin: auto;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.navigation .tab {
+    padding: 1rem 2rem;
+    background-color: #ccc;
+}
+
+.navigation .tab:hover {
+    background-color: skyblue;
+    color: white;
+    cursor: pointer;
+}
+
+.active {
+    background-color: skyblue !important;
+    color: white;
+}
+
+.window {
+    width: 600px;
+    margin: 2rem auto;
+    display: none;
+}
+
+.open {
+    display: block !important;
+}

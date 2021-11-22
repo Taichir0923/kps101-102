@@ -45,3 +45,23 @@ function updateTask(index){
 }
 
 // CRUD - Create Read Update Delete
+
+const tabs = document.querySelectorAll('.tab');
+const windows = document.querySelectorAll('.window');
+tabs.forEach((tab , index) => {
+    tab.addEventListener('click', () => {
+        removeActiveClass();
+        tab.classList.add('active');
+        windows[index].classList.add('open')
+    })
+})
+
+function removeActiveClass(){
+    tabs.forEach(tab => {
+        tab.classList.remove('active');
+    })
+
+    windows.forEach(tsonh => {
+        tsonh.classList.remove('open');
+    })
+}
