@@ -6,33 +6,13 @@
  * }
  */
 
-let todos = [
-    {
-        ner: 'Hicheeld suuh',
-        completed: false,
-        id: 1
-    },
-    {
-        ner: 'Hurald suuh',
-        completed: false,
-        id: 2
-    },
-    {
-        ner: 'Delguur oroh',
-        completed: false,
-        id: 3
-    },
-    {
-        ner: 'Tsetserlegees huuhed avah',
-        completed: true,
-        id: 4
-    },
-    {
-        ner: 'tailan beldeh',
-        completed: true,
-        id: 5
-    },
-]
+let todos = []
+
+// {
+//     ner: 'Hicheeld suuh',
+//     completed: false,
+//     id: +Math.random().toString().split('.')[1]
+// }
 
 function updateTask(index){
     const updatedTodos = [...todos];
@@ -48,6 +28,10 @@ function updateTask(index){
 
 const tabs = document.querySelectorAll('.tab');
 const windows = document.querySelectorAll('.window');
+const input = document.querySelector('#input');
+const btn = document.querySelector('#btn');
+
+
 tabs.forEach((tab , index) => {
     tab.addEventListener('click', () => {
         removeActiveClass();
@@ -65,13 +49,31 @@ tabs.forEach((tab , index) => {
     })
 })
 
+btn.addEventListener('click', () => {
+    if(input.value.trim() !== ''){
+        todos.push({
+            ner: input.value,
+            completed: false,
+            id: +Math.random().toString().split('.')[1]
+        })
+        renderItems(0 , todos);
+        input.value = '';
+    } else {
+        alert('hiih ajliig oruul')
+    }
+})
+
+document.addEventListener('click', e => {
+    
+})
+
 renderItems(0 , todos)
 
 function renderItems(index , massiv){
     windows[index].innerHTML = '';
     massiv.forEach(el => {
         windows[index].insertAdjacentHTML('beforeend', `
-            <li id="todo-${el.id}">
+            <li id="todo-${el.id}" class="${el.completed ? 'done' : ''}">
                 <p>${el.ner}</p>
                 <div class="buttons">
                     <button id="toggleTodo">
