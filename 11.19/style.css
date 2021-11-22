@@ -37,3 +37,76 @@
 .open {
     display: block !important;
 }
+
+.window li {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin-bottom: 1rem;
+    padding: 10px 1rem;
+    background-color: rgba(204, 204, 204, 0.589);
+    font-weight: bold;
+    text-transform: capitalize;
+    border-radius: 6px;
+}
+
+.window li:hover {
+    background-color: skyblue;
+    color: white;
+    cursor: pointer;
+}
+
+.window .buttons {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+.window .buttons button {
+    border-width: 2px;
+    border-style: solid;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.window .buttons button:nth-child(2) {
+    border-color: orangered;
+    background-color: rgba(255, 68, 0, 0.383);
+    color: orangered;
+}
+
+.window .buttons button:nth-child(2):hover {
+    background-color: orangered;
+    color: white;
+}
+
+.window .buttons button:nth-child(1) {
+    border-color: gray;
+    background-color: rgba(128, 128, 128, 0.438);
+    color: gray;
+}
+
+.window .buttons button:nth-child(1):hover {
+    background-color: rgb(107, 199, 91);
+    border-color: rgb(107, 199, 91);
+    color: white;
+}
+
+.done p {
+    text-decoration: line-through !important;
+}
+
+.done .buttons button:nth-child(1) {
+    background-color: rgb(107, 199, 91);
+    border-color: rgb(107, 199, 91);
+    color: white;
+}

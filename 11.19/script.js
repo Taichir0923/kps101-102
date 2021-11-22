@@ -71,7 +71,17 @@ function renderItems(index , massiv){
     windows[index].innerHTML = '';
     massiv.forEach(el => {
         windows[index].insertAdjacentHTML('beforeend', `
-            <li>${el.ner}</li>
+            <li id="todo-${el.id}">
+                <p>${el.ner}</p>
+                <div class="buttons">
+                    <button id="toggleTodo">
+                        <i class="fas fa-check"></i>
+                    </button>
+                    <button id="deleteTodo">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </li>
         `)
     })
 }
