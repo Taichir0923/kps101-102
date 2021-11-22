@@ -24,12 +24,12 @@ let todos = [
     },
     {
         ner: 'Tsetserlegees huuhed avah',
-        completed: false,
+        completed: true,
         id: 4
     },
     {
         ner: 'tailan beldeh',
-        completed: false,
+        completed: true,
         id: 5
     },
 ]
@@ -52,9 +52,31 @@ tabs.forEach((tab , index) => {
     tab.addEventListener('click', () => {
         removeActiveClass();
         tab.classList.add('active');
-        windows[index].classList.add('open')
+        windows[index].classList.add('open');
+        if(index === 1){
+            const done = todos.filter(todo => todo.completed === true);
+            renderItems(index , done)
+        } else if(index === 2){
+            const undone = todos.filter(todo => todo.completed !== true);
+            renderItems(index , undone)
+        } else {
+            renderItems(index , todos)
+        }
     })
 })
+
+renderItems(0 , todos)
+
+function renderItems(index , massiv){
+    windows[index].innerHTML = '';
+    massiv.forEach(el => {
+        windows[index].insertAdjacentHTML('beforeend', `
+            <li>${el.ner}</li>
+        `)
+    })
+}
+
+
 
 function removeActiveClass(){
     tabs.forEach(tab => {
