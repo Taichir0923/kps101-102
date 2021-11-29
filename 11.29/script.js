@@ -34,17 +34,26 @@
 // console.log(tomUsegAguuljBn.test(password));.
 
 const input = document.querySelector('#input');
+const texts = document.querySelectorAll('.text')
 
 input.addEventListener('input', () => {
-    const hasCapLetter = /[A-Z]/
-    const hasSmallLetter = /[a-z]/
-    const hasNumber = /[0-9]/
-    const hasSpeChar = /\W/
-    const isLength8 = /.{8,}/
-    if(hasCapLetter.test(input.value)){
-        console.log('password is powerful')
-    }
+    const regExp = [/[a-z]/ , /[A-Z]/ , /[0-9]/ , /\W/ , /.{8,}/]
+    regExp.forEach((exp , index) => {
+        if (exp.test(input.value)){
+            texts[index].classList.remove('text-red-400');
+            texts[index].classList.add('text-gray-400');
+            texts[index].classList.add('line-through');
+        } else {
+            texts[index].classList.add('text-red-400');
+            texts[index].classList.remove('text-gray-400');
+            texts[index].classList.remove('line-through');
+        }
+    })
+
+    const checkPass = /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W)(?=.{8,})/;
+
 })
+
 
 // Password strength shalgah function bich
 // 1. Tom useg aguulsan bh
@@ -52,3 +61,10 @@ input.addEventListener('input', () => {
 // 3. Too aguulsan bh
 // 4. Temdegt aguulsan bh
 // 5. hamgiin bagadaa 8 orontoi bh
+
+// Gert hex shalgah rexExp bichih - #AAABBB - ^ ... $
+//  {3, 6}$ 
+// 3 element
+// 6 element
+
+// a-f - 0-9
