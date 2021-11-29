@@ -64,7 +64,9 @@ btn.addEventListener('click', () => {
 })
 
 document.addEventListener('click', e => {
-    
+    if(e.target.id === 'toggleTodo'){
+        
+    }
 })
 
 renderItems(0 , todos)
