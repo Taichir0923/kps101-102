@@ -36,10 +36,20 @@
 const input = document.querySelector('#input');
 
 input.addEventListener('input', () => {
-    // const hasCapLetter = /[A-Z]/
-    // if(hasCapLetter.test(input.value)){
-    //     console.log('tom use bichigdlee')
-    // }
+    const hasCapLetter = /[A-Z]/
+    const hasSmallLetter = /[a-z]/
+    const hasNumber = /[0-9]/
+    const hasSpeChar = /\W/
+    const isLength8 = /.{8,}/
+    if(
+        hasCapLetter.test(input.value) &&
+        hasSmallLetter.test(input.value) &&
+        hasNumber.test(input.value) &&
+        hasSpeChar.test(input.value) &&
+        isLength8.test(input.value)
+    ){
+        console.log('password is powerful')
+    }
 })
 
 // Password strength shalgah function bich
