@@ -41,13 +41,7 @@ input.addEventListener('input', () => {
     const hasNumber = /[0-9]/
     const hasSpeChar = /\W/
     const isLength8 = /.{8,}/
-    if(
-        hasCapLetter.test(input.value) &&
-        hasSmallLetter.test(input.value) &&
-        hasNumber.test(input.value) &&
-        hasSpeChar.test(input.value) &&
-        isLength8.test(input.value)
-    ){
+    if(hasCapLetter.test(input.value)){
         console.log('password is powerful')
     }
 })
