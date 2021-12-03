@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
 
@@ -37,6 +38,34 @@
         } else {
             users = [];
         }
+
+        login.addEventListener('click' , function(event){
+            event.preventDefault();
+
+            if(email.value.trim() !== '' && password.value.trim() !== ""){
+                const userData = users.find(user => user.email === email.value);
+                if(!userData){
+                    swal({
+                        icon: 'error',
+                        title: "Алдаа гарлаа",
+                        text: "Нууц үг эсвэл имэйл буруу байна"
+                    });
+                    return;
+                }
+
+                if(userData.password === password.value){
+                    localStorage.setItem("currentUser" , JSON.stringify(userData));
+                    location.pathname = "/profile.html";
+                } else {
+                    swal({
+                        icon: 'error',
+                        title: "Алдаа гарлаа",
+                        text: "Нууц үг эсвэл имэйл буруу байна"
+                    });
+                    return;
+                }
+            }
+        })
     </script>
 </body>
 </html>
