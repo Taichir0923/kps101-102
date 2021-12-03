@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="wrap w-full h-screen bg-gray-100 flex justify-center items-center">
+        <div>
+            <h1 class="mb-2 text-xl font-bold">Нэвтрэх</h1>
+            <form class="w-96 p-4 bg-white rounded-xl flex flex-col">                
+                <label class="font-bold" for="email">Email</label>    
+                <input id="email" class="bg-gray-100 py-3 px-4 rounded-md mb-4" type="text" placeholder="Email">
+                
+                <label class="font-bold" for="password">Password</label>    
+                <input id="password" class="bg-gray-100 py-3 px-4 rounded-md mb-1" type="password" placeholder="password">
+                <a href="./index.html" class="mb-4 text-right">Бүртгүүлэх</a>
+
+                <input id="login" class="bg-indigo-400 text-white font-bold cursor-pointer py-3 px-4 rounded-md mb-4" type="button" value="Login">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const email = document.querySelector('#email');
+        const password = document.querySelector('#password');
+        const login = document.querySelector('#login');
+
+        var users;
+
+        if(localStorage["users"]){
+            users = JSON.parse(localStorage["users"])
+        } else {
+            users = [];
+        }
+    </script>
+</body>
+</html>

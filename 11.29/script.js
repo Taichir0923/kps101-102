@@ -33,26 +33,26 @@
 
 // console.log(tomUsegAguuljBn.test(password));.
 
-const input = document.querySelector('#input');
-const texts = document.querySelectorAll('.text')
+// const input = document.querySelector('#input');
+// const texts = document.querySelectorAll('.text')
 
-input.addEventListener('input', () => {
-    const regExp = [/[a-z]/ , /[A-Z]/ , /[0-9]/ , /\W/ , /.{8,}/]
-    regExp.forEach((exp , index) => {
-        if (exp.test(input.value)){
-            texts[index].classList.remove('text-red-400');
-            texts[index].classList.add('text-gray-400');
-            texts[index].classList.add('line-through');
-        } else {
-            texts[index].classList.add('text-red-400');
-            texts[index].classList.remove('text-gray-400');
-            texts[index].classList.remove('line-through');
-        }
-    })
+// input.addEventListener('input', () => {
+//     const regExp = [/[a-z]/ , /[A-Z]/ , /[0-9]/ , /\W/ , /.{8,}/]
+//     regExp.forEach((exp , index) => {
+//         if (exp.test(input.value)){
+//             texts[index].classList.remove('text-red-400');
+//             texts[index].classList.add('text-gray-400');
+//             texts[index].classList.add('line-through');
+//         } else {
+//             texts[index].classList.add('text-red-400');
+//             texts[index].classList.remove('text-gray-400');
+//             texts[index].classList.remove('line-through');
+//         }
+//     })
 
-    const checkPass = /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W)(?=.{8,})/;
+//     const checkPass = /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W)(?=.{8,})/;
 
-})
+// })
 
 
 // Password strength shalgah function bich

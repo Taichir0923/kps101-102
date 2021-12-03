@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="wrap w-full h-screen bg-gray-100 flex justify-center items-center">
+        <div>
+            <h1 class="mb-2 text-xl font-bold">Гишүүн бүртгэх</h1>
+            <form class="w-96 p-4 bg-white rounded-xl flex flex-col">
+                <label class="font-bold" for="fullname">Fullname</label>    
+                <input id="fullname" class="bg-gray-100 py-3 px-4 rounded-md mb-4" type="text" placeholder="Fullname">
+                
+                <label class="font-bold" for="email">Email</label>    
+                <input id="email" class="bg-gray-100 py-3 px-4 rounded-md mb-4" type="text" placeholder="Email">
+                
+                <label class="font-bold" for="number">Number</label>    
+                <input id="number" class="bg-gray-100 py-3 px-4 rounded-md mb-4" type="number" placeholder="Number">
+                
+                <label class="font-bold" for="password">Password</label>    
+                <input id="password" class="bg-gray-100 py-3 px-4 rounded-md mb-1" type="password" placeholder="password">
+                <a href="./login.html" class="mb-4 text-right">Нэвтрэх</a>
+
+                <input id="register" class="bg-indigo-400 text-white font-bold cursor-pointer py-3 px-4 rounded-md mb-4" type="button" value="Register">
+            </form>
+        </div>
+    </div>
+        
+    <script src="script.js"></script>
+</body>
+</html>
