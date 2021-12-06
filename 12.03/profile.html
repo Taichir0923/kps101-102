@@ -1,1 +1,35 @@
-PROFILE
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p id="ner"></p>
+
+    <script>
+        const ner = document.querySelector('#ner')
+
+        let currentUser;
+        window.addEventListener('load' , () => {
+            if(localStorage["currentUser"]){
+                currentUser = JSON.parse(localStorage["currentUser"]);
+                ner.innerHTML = currentUser.fullname
+            } else {
+                location.pathname = '/login.html';
+            }
+        })
+
+        ner.addEventListener('mouseover' , () => {
+            ner.innerText = 'hover hiigdlee';
+        });
+
+        ner.addEventListener('mouseleave' , () => {
+            ner.innerText = currentUser.fullname;
+        })
+    </script>
+</body>
+</html>

@@ -33,11 +33,17 @@
 
         var users;
 
-        if(localStorage["users"]){
-            users = JSON.parse(localStorage["users"])
-        } else {
-            users = [];
-        }
+        window.addEventListener('load' , () => {
+            if(localStorage["users"]){
+                users = JSON.parse(localStorage["users"])
+            } else {
+                users = [];
+            }
+
+            if(localStorage["currentUser"]){
+                location.pathname = '/profile.html';
+            }
+        })
 
         login.addEventListener('click' , function(event){
             event.preventDefault();
