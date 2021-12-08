@@ -44,14 +44,29 @@
         </div>
     </div>
 
+    <div class="mx-auto w-3/5 rounded-xl p-4 flex flex-col mt-56 bg-white shadow-xl">
+        <label class="font-bold mb-1" for="title">Нийтлэлийн гарчиг</label>
+        <input class="py-2 px-4 rounded-md mb-4 bg-gray-100" type="text" id="title" placeholder="Title">
+        
+        <label class="font-bold mb-1" for="body">Нийтлэл</label>
+        <textarea rows="3" class="py-2 px-4 rounded-md mb-4 bg-gray-100" id="body" placeholder="Title"></textarea>
+
+        <div class="w-full flex justify-end">
+            <button id="btn" class="bg-indigo-400 text-indigo-400 border-2 border-indigo-400 bg-opacity-30 font-bold transition duration-300 hover:bg-opacity-100 hover:text-white py-2 px-6 rounded-md">Нийтлэх</button>
+        </div>
+    </div>
+
     <script>
         const avatar = document.querySelector('#avatar');
         const icons = document.querySelectorAll('#icons');
         const deed = document.querySelector('#deed');
         const dood = document.querySelector('#dood');
         const logout = document.querySelector('#logout');
+        const title = document.querySelector('#title');
+        const body = document.querySelector('#body');
+        const btn = document.querySelector('#btn');
 
-        let currentUser;
+        let currentUser , posts;
         let infos = [];
         let keys = [];
         window.addEventListener('load' , () => {
@@ -65,7 +80,13 @@
                     keys.push(pro);
                 }
             } else {
-                location.pathname = '/login.html';
+                location.href = './login.html';
+            }
+
+            if(localStorage["posts"]){
+                posts = JSON.parse(localStorage["posts"]);
+            } else {
+                posts = [];
             }
         });
 
@@ -88,8 +109,26 @@
 
         logout.addEventListener('click', () => {
             localStorage.removeItem('currentUser');
-            location.pathname = '/login.html';
+            location.href = './login.html';
         })
+
+        btn.addEventListener('click' , () => {
+            if(title.value.trim() !== '' && body.value.trim() !== ''){
+                const article = new Post(title.value , body.value , currentUser.id);
+                posts.push(article)
+                localStorage.setItem('posts' , JSON.stringify(posts));
+                resetForm();
+            } else {
+                alert('Өгөгдөл дутуу байна...')
+            }
+        })
+
+        function resetForm(){
+            title.value = '';
+            body.value = '';
+        }
     </script>
 </body>
 </html>
+
+<!-- amjiltlearnspace1 -->
