@@ -56,6 +56,16 @@
         </div>
     </div>
 
+    <div class="mt-8" id="postContainer">
+        <div class="mx-auto w-3/5 rounded-xl p-4 mb-4 flex flex-col gap-2 bg-white shadow-xl">
+            <div class="w-full flex items-center justify-between">
+                <h1 class="font-bold">Title</h1>
+                <p class="text-xs text-gray-500">2021/12/08</p>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae cupiditate, similique numquam cum libero iusto minus consequuntur! Fugit commodi, nisi corporis, similique libero impedit non maxime excepturi ratione dolore nulla!...</p>
+        </div>
+    </div>
+
     <script>
         const avatar = document.querySelector('#avatar');
         const icons = document.querySelectorAll('#icons');
@@ -65,6 +75,7 @@
         const title = document.querySelector('#title');
         const body = document.querySelector('#body');
         const btn = document.querySelector('#btn');
+        const postContainer = document.querySelector('#postContainer');
 
         let currentUser , posts;
         let infos = [];
@@ -88,6 +99,8 @@
             } else {
                 posts = [];
             }
+
+            updateUi()
         });
 
         class Post {
@@ -96,6 +109,10 @@
                 this.body = body;
                 this.userId = userId;
                 this.id = Math.random().toString().split('.')[1];
+                this.created = {
+                    date: new Date().toLocaleDateString(),
+                    time: new Date().toLocaleTimeString()
+                }
             }
         }
 
@@ -118,6 +135,7 @@
                 posts.push(article)
                 localStorage.setItem('posts' , JSON.stringify(posts));
                 resetForm();
+                updateUi();
             } else {
                 alert('Өгөгдөл дутуу байна...')
             }
@@ -126,6 +144,27 @@
         function resetForm(){
             title.value = '';
             body.value = '';
+        }
+
+        function updateUi(){
+            postContainer.innerHTML = '';
+            const userPosts = posts.filter(post => post.userId === currentUser.id);
+
+            if(userPosts.length === 0){
+                postContainer.innerHTML = 'Одоогоор нийтлэл алга байна...'
+            } 
+
+            userPosts.forEach(post => {
+                postContainer.insertAdjacentHTML('afterbegin', `
+                    <div class="mx-auto w-3/5 rounded-xl p-4 mb-4 flex flex-col gap-2 bg-white shadow-xl">
+                    <div class="w-full flex items-center justify-between">
+                            <h1 class="font-bold">${post.title}</h1>
+                        </div>
+                        <p>${post.body.slice(0, 226)}...</p>
+                        <p class="text-xs text-right text-gray-500">${post.created.date}, ${post.created.time}</p>
+                    </div>
+                `)
+            })
         }
     </script>
 </body>
