@@ -68,13 +68,23 @@
                             <p class="text-xs text-gray-500">${post.created.date}, ${post.created.time}</p>
                         </div>
                         <div class="w-full flex items-center justify-between">
-                            <h1 class="font-bold">${post.title}</h1>
+                            <h1 id="article" class="font-bold">${post.title}</h1>
+                            <input hidden value=${post.id} />
                         </div>
                         <p>${post.body.slice(0, 226)}...</p>
                     </div>
                 `)
             })
         }
+
+        document.addEventListener('click' , (event) => {
+            if(event.target.id === 'article') {
+                const postId = event.target.nextElementSibling.value;
+                const currentArticle = posts.find(post => post.id === postId);
+                localStorage.setItem('currentPost' , JSON.stringify(currentArticle));
+                location.href = './article.html'
+            }
+        })
     </script>
 </body>
 </html>
