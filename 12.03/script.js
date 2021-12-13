@@ -32,3 +32,5 @@ register.addEventListener('click' , function(e){
     users.push(user);
     localStorage.setItem('users' , JSON.stringify(users));
 })
+
+// JS modules , IIFE , export , import
