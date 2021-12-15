@@ -1,3 +1,5 @@
+import { User } from "./model.js";
+import { burtgeh } from "./controller.js";
 const fullname = document.querySelector('#fullname');
 const email = document.querySelector('#email');
 const number = document.querySelector('#number');
@@ -7,30 +9,22 @@ const image = document.querySelector('#image');
 
 var users;
 
+
 if(localStorage["users"]){
     users = JSON.parse(localStorage["users"])
 } else {
     users = [];
 }
 
-class User {
-    constructor(fullname, email, number, password , avatar){
-        this.fullname = fullname;
-        this.email = email;
-        this.number = number;
-        this.password = password;
-        this.avatar = avatar
-        this.id = Math.random().toString().split('.')[1];
-    }
-}
+register.addEventListener('click' , e => {
+    burtgeh(e , users , User , {
+        fullname: fullname.value,
+        email: email.value,
+        number: number.value,
+        password: password.value,
+        image: image.value,
+    })
+}) 
 
-register.addEventListener('click' , function(e){
-    e.preventDefault();
-    
-    const user = new User(fullname.value, email.value , number.value, password.value, image.value);
-
-    users.push(user);
-    localStorage.setItem('users' , JSON.stringify(users));
-})
 
 // JS modules , IIFE , export , import
