@@ -8,3 +8,16 @@ export class User {
         this.id = Math.random().toString().split('.')[1];
     }
 }
+
+export class Comment {
+    constructor(userId , postId , comment){
+        this.userId = userId;
+        this.postId = postId;
+        this.comment = comment;
+        this.created = {
+            date: new Date().toLocaleDateString(),
+            time: new Date().toLocaleTimeString()
+        };
+        this.id = Math.random().toString().split('.')[1];
+    }
+}

@@ -23,11 +23,16 @@
             </div>
         </div>
 
-        <script>
+        <script type='module'>
             const newsContainer = document.querySelector('#news');
             const btn = document.querySelector('#btn');
             const comment = document.querySelector('#comment');
             const commentContainer = document.querySelector('#commentContainer');
+
+            import {Comment} from './model.js';
+            import {writeComment} from './controller.js'
+            // console.log(Comment)
+
             let currentPost , users, currentUser , comments;
             window.addEventListener('load' , () => {
                 if(localStorage['users']){
@@ -39,7 +44,7 @@
                 if(localStorage['comments']){
                     comments = JSON.parse(localStorage['comments']);
                 } else {
-                    comments = []
+                    comments = [];
                 }
 
                 if(localStorage['currentPost']){
@@ -57,36 +62,10 @@
                 updateUi()
             })
 
-            class Comment {
-                constructor(userId , postId , comment){
-                    this.userId = userId;
-                    this.postId = postId;
-                    this.comment = comment;
-                    this.created = {
-                        date: new Date().toLocaleDateString(),
-                        time: new Date().toLocaleTimeString()
-                    };
-                    this.id = Math.random().toString().split('.')[1];
-                }
-            }
+            
 
             btn.addEventListener('click' , () => {
-                if(!currentUser){
-                    alert('Сэтгэгдэл үлдээхийн тулд нэвтрэх шаардлагатай...')
-                } else {
-                    if(!comment.value){
-                        alert('Хоосон байна.')
-                    } else {
-                        const setgegdel = new Comment(currentUser.id , currentPost.id , comment.value);
-    
-                        comments.push(setgegdel);
-    
-                        localStorage.setItem('comments' , JSON.stringify(comments));
-    
-                        comment.value = '';
-                        updateUi()
-                    }
-                }
+                writeComment(currentUser , comment , Comment , currentPost , updateUi , comments)
             })
 
             function updateUi(){
