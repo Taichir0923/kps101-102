@@ -42,8 +42,9 @@ testPromise(123)
 // server client tal ruu data ilgeehdee JSON helbereer ilgeedeg. 
 // JSON - JS Object Notation
 // neg torliin object
+const users = document.querySelector('.wrap')
 
-fetch('https://jsonplaceholder.typicode.com/users' , {
+fetch('https://jsonplaceholder.typicode.com/users/10' , {
     method: 'get'
 })
     .then(res => {
@@ -51,10 +52,19 @@ fetch('https://jsonplaceholder.typicode.com/users' , {
     })
     .then(data => {
         data.forEach(user => {
-            console.log(user.email)
+            users.insertAdjacentHTML('beforeend' , `
+                <h3 class="user" id=${user.id}>${user.username}</h3>
+            `)
         })
     })
     .catch(err => console.log(err))
+
+document.addEventListener('click' , e => {
+    if(e.target.classList.contains('user')){
+        localStorage.setItem('userId' , e.target.id)
+        location.pathname = '/user.html'
+    }
+})
 
 // Request =>
 // 1. Get - server-s data huleej avah
@@ -62,3 +72,5 @@ fetch('https://jsonplaceholder.typicode.com/users' , {
 // 3. Put - ямар нэг датаг өөр цоон шинэ датагаар солих
 // 4. Patch - ямар нэг датаны тодорхой хэсгийг солих
 // 5. Delete - устгах
+
+// хэрэглэгчийн нэр дээр дарах үед user.html хуудас руу шилжих ба тухайн хуудсан хэрэглэгчийн датаг харуулах 
