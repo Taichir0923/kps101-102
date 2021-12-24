@@ -5,8 +5,72 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #username {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .nav {
+            margin: auto;
+            display: flex;
+            list-style: none;
+            gap: 1rem;
+            font: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            justify-content: center;
+        }
+
+        .nav li {
+            padding: 1rem 2rem;
+        }
+        .nav li a {
+            text-decoration: none;
+            color: black;
+        }
+        .nav li:hover {
+            background-color: skyblue;
+        }
+
+        .nav li:hover a {
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    user page
+    <h1 id='username'></h1>
+    <ul class="nav">
+        <li>
+            <a href="./todos.html">Todos</a>
+        </li>
+        <li>
+            <a href="./posts.html">
+                Posts
+            </a>
+        </li>
+        <li>
+            <a href="./albums">
+                Albums
+            </a>
+        </li>
+    </ul>
+    <script>
+        let userId;
+        if(localStorage.userId){
+            userId = localStorage.userId
+        } else {
+            userId = null
+        }
+        fetch('https://jsonplaceholder.typicode.com/users/' + userId , {
+            method: 'get'
+        })
+            .then(res => {
+                return res.json()
+            })
+            .then(user => {
+                document.querySelector('#username').innerHTML = user.name
+            })
+    </script>
 </body>
 </html>

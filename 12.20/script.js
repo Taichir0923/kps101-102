@@ -44,7 +44,7 @@ testPromise(123)
 // neg torliin object
 const users = document.querySelector('.wrap')
 
-fetch('https://jsonplaceholder.typicode.com/users/10' , {
+fetch('https://jsonplaceholder.typicode.com/users' , {
     method: 'get'
 })
     .then(res => {
