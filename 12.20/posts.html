@@ -40,11 +40,10 @@
             .then(posts => {
                 posts.forEach(post => {
                     document.querySelector('.wrap').insertAdjacentHTML('beforeend' , `
-                    <div>
-                        <h1 id="post">${post.title}</h1>
-                        <input value=${post.id} hidden />
-                    </div>    
-
+                        <div>
+                            <h1 id="post">${post.title}</h1>
+                            <input value=${post.id} hidden />
+                        </div>
                     `)
                 })
             })
@@ -57,6 +56,7 @@
                         .then(comments => console.log(comments))
                 }
             })
+
     </script>
 </body>
 </html>
