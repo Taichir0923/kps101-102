@@ -1,0 +1,20 @@
+{
+  "name": "21.01.03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "bcryptjs": "^2.4.3"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.1"
+  }
+}
