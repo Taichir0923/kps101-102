@@ -9,11 +9,57 @@ canvas.height = 800;
 
 // chess board
 
-const rookBlack = new Image;
-rookBlack.src = './images/rookBlack.png'
+const rookBlack = new Image();
+rookBlack.src = './images/rookBlack.png';
+rookBlack.addEventListener('load' , () => {
+    ctx.drawImage(rookBlack , 15 , 15, 70, 70);
+    ctx.drawImage(rookBlack , 715 , 15, 70, 70);
+})
+
+const knightBlack = new Image();
+knightBlack.src = './images/knightBlack.png';
+knightBlack.addEventListener('load' , () => {
+    ctx.drawImage(knightBlack , 115 , 15, 70, 70);
+    ctx.drawImage(knightBlack , 615 , 15, 70, 70);
+})
+
+const biShopBlack = new Image();
+biShopBlack.src = './images/biShopBlack.png';
+biShopBlack.addEventListener('load' , () => {
+    ctx.drawImage(biShopBlack , 215 , 15, 70, 70);
+    ctx.drawImage(biShopBlack , 515 , 15, 70, 70);
+});
+
+const queenBlack = new Image();
+queenBlack.src = './images/queenBlack.png';
+queenBlack.addEventListener('load' , () => {
+    ctx.drawImage(queenBlack , 315 , 15, 70, 70);
+})
+
+const kingBlack = new Image();
+kingBlack.src = './images/kingBlack.png';
+kingBlack.addEventListener('load' , () => {
+    ctx.drawImage(kingBlack , 415 , 15, 70, 70);
+})
+
+const pawnBlack = new Image();
+pawnBlack.src = './images/pawnBlack.png';
+pawnBlack.addEventListener('load' , () => {
+    ctx.drawImage(pawnBlack , 15 , 115, 70, 70);
+    ctx.drawImage(pawnBlack , 115 , 115, 70, 70);
+    ctx.drawImage(pawnBlack , 215 , 115, 70, 70);
+    ctx.drawImage(pawnBlack , 315 , 115, 70, 70);
+    ctx.drawImage(pawnBlack , 415 , 115, 70, 70);
+    ctx.drawImage(pawnBlack , 515 , 115, 70, 70);
+    ctx.drawImage(pawnBlack , 615 , 115, 70, 70);
+    ctx.drawImage(pawnBlack , 715 , 115, 70, 70);
+})
+
 
 ctx.fillStyle = '#d9b68e';
 ctx.fillRect(0, 0, 100, 100);
+
+
 
 
 
