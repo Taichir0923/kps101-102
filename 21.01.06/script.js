@@ -9,6 +9,9 @@ canvas.height = 800;
 
 // chess board
 
+let kingX = 415;
+let kingY = 15;
+
 const rookBlack = new Image();
 rookBlack.src = './images/rookBlack.png';
 rookBlack.addEventListener('load' , () => {
@@ -36,11 +39,16 @@ queenBlack.addEventListener('load' , () => {
     ctx.drawImage(queenBlack , 315 , 15, 70, 70);
 })
 
-const kingBlack = new Image();
-kingBlack.src = './images/kingBlack.png';
-kingBlack.addEventListener('load' , () => {
-    ctx.drawImage(kingBlack , 415 , 15, 70, 70);
-})
+function moveKing(){
+    const kingBlack = new Image();
+    kingBlack.src = './images/kingBlack.png';
+    kingBlack.addEventListener('load' , () => {
+        ctx.drawImage(kingBlack , kingX , kingY , 70, 70);
+    })
+}
+
+moveKing()
+
 
 const pawnBlack = new Image();
 pawnBlack.src = './images/pawnBlack.png';
@@ -56,13 +64,15 @@ pawnBlack.addEventListener('load' , () => {
 })
 
 
+canvas.addEventListener('click' , e => {
+    if(e.offsetX > 400 && e.offsetX < 500 && e.offsetY < 100){
+        kingY += 200;
+        moveKing();
+    }
+});
+
 ctx.fillStyle = '#d9b68e';
 ctx.fillRect(0, 0, 100, 100);
-
-
-
-
-
 ctx.fillStyle = '#904e2e';
 ctx.fillRect(100, 0, 100, 100);
 ctx.fillStyle = '#d9b68e';
