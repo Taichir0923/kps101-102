@@ -7,7 +7,10 @@ ctx.height = 500;
 var x = ctx.width / 2;
 var y = ctx.height / 2;
 
-var velocity = 1;
+var xvelocity = Math.random() < 0.5 ? -0.8 * Math.random() : 0.8 * Math.random();
+var yvelocity = Math.random() < 0.5 ? -0.75 * Math.random() : 0.75 * Math.random();
+
+// 
 
 // var x = 
 // 
@@ -37,9 +40,14 @@ function drawBall(){
 drawBall();
 function moveBall(){
     if(x >= ctx.width - 50 || x <= 50){
-        velocity *= -1;
+        xvelocity *= -1;
     }
-    x += 10 * velocity;
+
+    if(y >= ctx.height - 50 || y <= 50){
+        yvelocity *= -1;
+    }
+    x += 10 * xvelocity;
+    y += 10 * yvelocity;
 }
 
 // setInterval(drawBall , 1000/60)
