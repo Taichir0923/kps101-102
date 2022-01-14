@@ -45,7 +45,7 @@ class DOM {
     }
 
     private btnHandler (){
-        this.todos.push(this.input.value);
+        // this.todos.push(this.input.value);
         this.clearInput();
         this.printTodos();
     }
@@ -59,4 +59,4 @@ class DOM {
 const dom = new DOM();
 
 
-// Object хадгалах
+// Object хадгалах'
