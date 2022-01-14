@@ -12,16 +12,32 @@
 //     age: 23,
 //     hobbies: ['12']
 // }]
+interface todo {
+    taskName: string,
+    id: string,
+    completed: boolean
+}
 
 class DOM {
-    text: HTMLParagraphElement;
+    text: HTMLDivElement;
     input: HTMLInputElement;
     button: HTMLButtonElement;
+    todos: todo[] = [];
     constructor(){
-        this.text = document.querySelector('#text')! as HTMLParagraphElement;
+        this.text = document.querySelector('#text')! as HTMLDivElement;
         this.input = document.querySelector('#input')! as HTMLInputElement;
         this.button = document.querySelector('#btn')! as HTMLButtonElement;
+        // this.todos = [];
         this.test()
+    }
+
+    private printTodos(){
+        this.text.innerHTML = '';
+        this.todos.forEach(todo => {
+            this.text.insertAdjacentHTML('afterbegin' , `
+                <p>${todo}</p>
+            `)
+        })
     }
 
     private clearInput(){
@@ -29,8 +45,9 @@ class DOM {
     }
 
     private btnHandler (){
-        this.text.innerHTML = this.input.value;
+        this.todos.push(this.input.value);
         this.clearInput();
+        this.printTodos();
     }
 
     private test(){
@@ -41,12 +58,5 @@ class DOM {
 
 const dom = new DOM();
 
-// array , object , tuples
 
-// tuples
-
-// class Hi extends DOM {
-
-// }
-
-// const hi = new Hi();
+// Object хадгалах
